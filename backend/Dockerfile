@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:22-slim AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN pnpm install
 COPY . .
 RUN pnpm run build
 
-FROM node:18-alpine
+FROM node:22-slim
 
 WORKDIR /app
 
