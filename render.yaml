@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: retro-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_CALLBACK_URL
+        fromService:
+          type: web
+          name: retro-frontend
+          property: url
+          envVarKey: GITHUB_CALLBACK_URL
+          value: /api/auth/callback
+
+  - type: web
+    name: retro-frontend
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: node .output/server/index.mjs
+    envVars:
+      - key: NUXT_PUBLIC_API_BASE
+        fromService:
+          type: web
+          name: retro-backend
+          property: url
