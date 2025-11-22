@@ -10,4 +10,5 @@ export interface Console {
   releaseYear: number;
   manufacturer: string;
   topGames: Game[];
+  createdBy?: string; // User ID who created this console
 }

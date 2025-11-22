@@ -43,7 +43,15 @@ export class ConsoleService {
     return this.consoles;
   }
 
+  findById(id: string): Console | undefined {
+    return this.consoles.find(console => console.id === id);
+  }
+
   addConsole(newConsole: Console): void {
     this.consoles.push(newConsole);
+  }
+
+  deleteConsole(id: string): void {
+    this.consoles = this.consoles.filter(console => console.id !== id);
   }
 }
