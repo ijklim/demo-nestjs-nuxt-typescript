@@ -21,9 +21,16 @@ After deploying to Render, set these environment variables in the Render dashboa
 
 ## Frontend Service (`retro-frontend`)
 
+### Required Environment Variables
+
 | Variable | Example Value | Description |
 |----------|--------------|-------------|
-| `NUXT_PUBLIC_API_BASE` | `https://retro-backend.onrender.com/api` | Backend API base URL |
+| `NUXT_PUBLIC_API_BASE` | `https://retro-backend.onrender.com/api` | Backend API base URL (must include `/api` path) |
+
+**Important Notes:**
+- The `NUXT_PUBLIC_` prefix is **required** for Nuxt to expose this variable to the browser
+- This variable is **baked into the build** at build time, so you must redeploy after changing it
+- Do **not** include a trailing slash after `/api`
 
 ### Auto-set Variables
 - `NODE_ENV=production` - Already set in render.yaml

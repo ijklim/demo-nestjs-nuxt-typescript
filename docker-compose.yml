@@ -21,8 +21,8 @@ services:
       target: ${FRONTEND_TARGET:-stage-prod}  # Use 'stage-dev' or 'stage-prod'
     ports:
       - "3000:3000"
-    environment:
-      - NUXT_PUBLIC_API_BASE=http://localhost:3001/api
+    env_file:
+      - ./frontend/.env
     volumes:
       # Mount source code for hot-reloading in development mode
       # These are ignored in production mode since it uses built files
