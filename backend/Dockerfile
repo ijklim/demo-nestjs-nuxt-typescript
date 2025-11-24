@@ -34,6 +34,7 @@ WORKDIR /app
 # node_modules are required because NestJS build output is not bundled
 COPY --from=stage-build /app/node_modules ./node_modules
 COPY --from=stage-build /app/dist ./dist
+COPY --from=stage-build /app/package.json ./package.json
 
 ENV NODE_ENV=production
 
