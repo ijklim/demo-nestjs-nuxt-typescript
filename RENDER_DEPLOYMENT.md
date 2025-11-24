@@ -9,6 +9,7 @@ After deploying to Render, set these environment variables in the Render dashboa
 | Variable | Example Value | Description |
 |----------|--------------|-------------|
 | `BACKEND_URL` | `https://retro-backend.onrender.com` | Your backend service URL (get this from Render after deployment) |
+| `FRONTEND_URL` | `https://retro-frontend.onrender.com` | Your frontend service URL (used for CORS and OAuth redirects) |
 | `GITHUB_CLIENT_ID` | `Ov23liWHFQm5h49RP3Hi` | GitHub OAuth App Client ID |
 | `GITHUB_CLIENT_SECRET` | `your_secret_here` | GitHub OAuth App Client Secret |
 | `JWT_SECRET` | `your_random_secret_here` | Secret key for JWT token signing (generate a secure random string) |
