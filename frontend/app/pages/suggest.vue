@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const config = useRuntimeConfig()
-const apiBase = config.public.apiBase || 'http://localhost:3001/api'
+const apiBase = config.public.apiBase
 
 const route = useRoute()
 const { token, user, logout } = useAuth()

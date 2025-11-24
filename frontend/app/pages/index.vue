@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const apiBase = config.public.apiBase || 'http://localhost:3001/api'
+const apiBase = config.public.apiBase
 
 const consoles = ref([])
 const { token, user, setUser } = useAuth()

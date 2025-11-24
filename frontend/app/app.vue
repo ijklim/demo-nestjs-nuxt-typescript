@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
+
+onMounted(() => {
+  // Debug logging to verify environment configuration
+  console.log('[Debug Only] Frontend Config:', {
+    apiBase: config.public.apiBase,
+    env: config.public.env,
+    version: config.public.version
+  })
+})
 </script>
 
 <template>
