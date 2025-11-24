@@ -10,10 +10,10 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
       clientID: configService.get<string>('GITHUB_CLIENT_ID') || '',
       clientSecret: configService.get<string>('GITHUB_CLIENT_SECRET') || '',
 
-      // Path defined in auth.controller.ts (AuthController @Controller('api/auth') + @Get('callback'))
-      callbackURL: configService.get<string>('BACKEND_URL')
-        ? `${configService.get<string>('BACKEND_URL')}/api/auth/callback`
-        : configService.get<string>('GITHUB_CALLBACK_URL') || '',
+      // Callback URL is constructed from BACKEND_URL + hardcoded path
+      // The path '/api/auth/callback' is defined in auth.controller.ts
+      // (@Controller('api/auth') + @Get('callback'))
+      callbackURL: `${configService.get<string>('BACKEND_URL')}/api/auth/callback`,
 
       scope: ['public_profile'],
     });
