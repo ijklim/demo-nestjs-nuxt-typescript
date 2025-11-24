@@ -3,10 +3,14 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      target: ${BACKEND_TARGET:-stage-dev}
     ports:
       - "3001:3000"
     env_file:
       - ./backend/.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     networks:
       - retro-network
 

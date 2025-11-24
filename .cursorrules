@@ -1,0 +1,5 @@
+# User Preferences
+
+- **Package Manager**: Always use **pnpm**. Never use npm or yarn.
+- **Security**: Run security audits using `pnpm audit`.
+- **Version Control**: Use **Git** for version control. Never use SVN or Perforce.
