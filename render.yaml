@@ -1,10 +1,11 @@
 services:
   - type: web
     name: retro-backend
+    instanceType: free
     env: node
     rootDir: backend
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
+    buildCommand: corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm run build
+    startCommand: pnpm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
@@ -19,9 +20,10 @@ services:
 
   - type: web
     name: retro-frontend
+    instanceType: free
     env: node
     rootDir: frontend
-    buildCommand: npm install && npm run build
+    buildCommand: corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm run build
     startCommand: node .output/server/index.mjs
     envVars:
       - key: NODE_ENV
