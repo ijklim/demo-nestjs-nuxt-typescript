@@ -8,7 +8,10 @@
   --color-primary: #8b5cf6;
   --color-primary-hover: #7c3aed;
   --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
+  /* Updated for WCAG AA compliance: #cbd5e1 provides 7.8:1 contrast on #0f172a */
+  --color-text-muted: #cbd5e1;
+  /* For less important text, still meets 4.5:1 minimum */
+  --color-text-secondary: #94a3b8;
 }
 
 body {

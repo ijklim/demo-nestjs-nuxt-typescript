@@ -9,6 +9,9 @@ const apiBase = config.public.apiBase
 const route = useRoute()
 const { token, user, logout } = useAuth()
 
+// Set page title dynamically
+usePageTitle()
+
 // Suggest Console Form
 const form = ref({
   id: '',
@@ -111,20 +114,22 @@ const goHome = () => {
       <div class="glass-panel p-8 rounded-2xl">
         <form @submit.prevent="submitSuggestion" class="space-y-6">
           <div>
-            <label class="block text-sm font-medium text-text-muted mb-2">Console ID</label>
+            <label for="console-id" class="block text-sm font-medium text-text-muted mb-2">Console ID</label>
             <input
+              id="console-id"
               v-model="form.id"
               type="text"
               placeholder="e.g., n64, genesis, dreamcast"
               class="w-full bg-surface border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors"
               required
             >
-            <p class="text-xs text-text-muted/60 mt-1">A unique identifier (lowercase, no spaces)</p>
+            <p class="text-xs text-text-muted mt-1">A unique identifier (lowercase, no spaces)</p>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-text-muted mb-2">Console Name</label>
+            <label for="console-name" class="block text-sm font-medium text-text-muted mb-2">Console Name</label>
             <input
+              id="console-name"
               v-model="form.name"
               type="text"
               placeholder="e.g., Nintendo 64"
@@ -134,8 +139,9 @@ const goHome = () => {
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-text-muted mb-2">Manufacturer</label>
+            <label for="console-manufacturer" class="block text-sm font-medium text-text-muted mb-2">Manufacturer</label>
             <input
+              id="console-manufacturer"
               v-model="form.manufacturer"
               type="text"
               placeholder="e.g., Nintendo, Sega, Sony"
@@ -145,8 +151,9 @@ const goHome = () => {
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-text-muted mb-2">Release Year</label>
+            <label for="console-release-year" class="block text-sm font-medium text-text-muted mb-2">Release Year</label>
             <input
+              id="console-release-year"
               v-model="form.releaseYear"
               type="number"
               placeholder="e.g., 1996"

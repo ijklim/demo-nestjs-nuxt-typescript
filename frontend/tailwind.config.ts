@@ -21,6 +21,7 @@ export default <Config>{
         text: {
           DEFAULT: 'var(--color-text)',
           muted: 'var(--color-text-muted)',
+          secondary: 'var(--color-text-secondary)',
         }
       }
     }

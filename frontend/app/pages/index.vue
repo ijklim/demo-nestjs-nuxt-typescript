@@ -8,6 +8,9 @@ const showDeleteModal = ref(false)
 const consoleToDelete = ref(null)
 const explodingConsoleId = ref(null)
 
+// Set page title dynamically
+usePageTitle('Home')
+
 // Fetch consoles and user profile client-side
 onMounted(async () => {
   try {
@@ -87,7 +90,7 @@ const deleteConsole = async () => {
     </div>
 
     <h1 class="text-5xl md:text-7xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 animate-pulse">
-      Retro Console Explorer
+      {{ config.public.title }}
     </h1>
 
     <p class="text-xl text-text-muted mb-12 max-w-2xl text-center text-balance">
@@ -101,7 +104,7 @@ const deleteConsole = async () => {
       Go to Dashboard
     </button>
 
-    <p v-if="!token" class="text-sm text-text-muted/70 mb-16 text-center">
+    <p v-if="!token" class="text-sm text-text-muted mb-16 text-center">
       Sign in to suggest your favorite retro consoles to the collection
     </p>
 
@@ -121,11 +124,11 @@ const deleteConsole = async () => {
         <p class="text-text-muted mb-4">{{ console.manufacturer }}</p>
 
         <div class="space-y-2">
-          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Top Games</h3>
+          <h3 class="text-sm font-semibold text-text-muted uppercase tracking-wider">Top Games</h3>
           <ul class="space-y-1">
             <li v-for="game in console.topGames" :key="game.gameName" class="text-sm flex justify-between">
               <span>{{ game.gameName }}</span>
-              <span class="text-gray-500">{{ game.year }}</span>
+              <span class="text-text-secondary">{{ game.year }}</span>
             </li>
           </ul>
         </div>

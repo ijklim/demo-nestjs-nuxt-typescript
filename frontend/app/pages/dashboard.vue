@@ -9,6 +9,9 @@ const apiBase = config.public.apiBase
 const route = useRoute()
 const { token, setToken, user, setUser, logout } = useAuth()
 
+// Set page title dynamically
+usePageTitle()
+
 // Handle OAuth callback - save token from query params
 if (route.query.token) {
   setToken(route.query.token as string)
@@ -74,7 +77,7 @@ onMounted(async () => {
             <button @click="navigateTo('/suggest')" class="btn-primary w-full text-lg">
               Suggest a Console
             </button>
-            <p class="text-sm text-text-muted/70 text-center">
+            <p class="text-sm text-text-muted text-center">
               Share your favorite retro consoles with the community
             </p>
           </div>

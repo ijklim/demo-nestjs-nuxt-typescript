@@ -16,7 +16,7 @@ onMounted(() => {
     <div class="flex-grow">
       <NuxtPage />
     </div>
-    <footer class="p-4 text-right text-sm text-gray-500">
+    <footer class="p-4 text-right text-sm text-white/50">
       v{{ config.public.version }} ({{ config.public.env }})
     </footer>
   </div>
